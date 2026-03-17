@@ -52,7 +52,7 @@ const Contact = () => {
           <div className="w-20 h-1 bg-primary-600 mx-auto rounded-full"></div>
           <p className="text-gray-600 mt-6 max-w-2xl mx-auto">
             I'm always interested in hearing about new projects and opportunities. 
-            Whether you have a question or just want to say hi, feel free to reach out!
+            Feel free to reach out using the contact information below!
           </p>
         </motion.div>
 
