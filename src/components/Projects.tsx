@@ -98,9 +98,9 @@ const Projects = () => {
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="flex items-center gap-2 text-gray-600 hover:text-primary-600 transition-colors duration-200"
+                    className="px-4 py-2 text-sm font-medium text-gray-600 hover:text-primary-600 border border-gray-300 hover:border-primary-300 rounded-lg transition-colors duration-200"
                   >
-                    <span className="text-sm font-medium">Code</span>
+                    GitHub
                   </motion.a>
                 </div>
               </div>
