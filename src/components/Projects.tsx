@@ -90,19 +90,6 @@ const Projects = () => {
                     </span>
                   </div>
                 )}
-                
-                <div className="flex gap-4">
-                  <motion.a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="px-4 py-2 text-sm font-medium text-gray-600 hover:text-primary-600 border border-gray-300 hover:border-primary-300 rounded-lg transition-colors duration-200"
-                  >
-                    GitHub
-                  </motion.a>
-                </div>
               </div>
             </motion.div>
           ))}
