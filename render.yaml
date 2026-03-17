@@ -1,6 +1,8 @@
+# Render deployment configuration for portfolio website
 services:
   - type: web
     name: portfolio
+    # Static site hosting for React portfolio
     env: static
     buildCommand: npm run build
     staticPublishPath: dist
