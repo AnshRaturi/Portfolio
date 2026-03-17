@@ -18,19 +18,25 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    setTimeout(() => {
-      setSubmitStatus('success');
-      setFormData({ name: '', email: '', message: '' });
-      setIsSubmitting(false);
-      
-      // Reset status after 3 seconds
-      setTimeout(() => setSubmitStatus('idle'), 3000);
-    }, 1500);
+    // Create mailto link with form data
+    const subject = encodeURIComponent(`Message from ${formData.name} via Portfolio`);
+    const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`);
+    const mailtoLink = `mailto:anshraturi87@gmail.com?subject=${subject}&body=${body}`;
+    
+    // Open email client
+    window.location.href = mailtoLink;
+    
+    // Reset form
+    setFormData({ name: '', email: '', message: '' });
+    setSubmitStatus('success');
+    setIsSubmitting(false);
+    
+    // Reset status after 3 seconds
+    setTimeout(() => setSubmitStatus('idle'), 3000);
   };
 
   const contactInfo = [

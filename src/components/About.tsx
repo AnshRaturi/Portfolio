@@ -49,7 +49,7 @@ const About = () => {
             transition={{ duration: 0.8 }}
           >
             <h3 className="text-2xl font-semibold text-gray-900 mb-4">
-              Computer Science Student & AI/ML Developer
+              B.Tech in Computer Science and Engineering & AI/ML Developer
             </h3>
             <p className="text-gray-600 mb-6 leading-relaxed">
               I'm a passionate Computer Science and Engineering student at Lovely Professional University, Phagwara, Punjab (2023-2027). 
