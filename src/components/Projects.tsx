@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { Github } from 'lucide-react';
 
 const Projects = () => {
   const projects = [
@@ -101,7 +100,6 @@ const Projects = () => {
                     whileTap={{ scale: 0.95 }}
                     className="flex items-center gap-2 text-gray-600 hover:text-primary-600 transition-colors duration-200"
                   >
-                    <Github size={18} />
                     <span className="text-sm font-medium">Code</span>
                   </motion.a>
                 </div>
