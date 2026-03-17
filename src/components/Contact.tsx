@@ -1,44 +1,7 @@
-import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, Github, Linkedin } from 'lucide-react';
+import { Mail, Phone, MapPin, Github, Linkedin } from 'lucide-react';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Create mailto link with form data
-    const subject = encodeURIComponent(`Message from ${formData.name} via Portfolio`);
-    const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`);
-    const mailtoLink = `mailto:anshraturi87@gmail.com?subject=${subject}&body=${body}`;
-    
-    // Open email client
-    window.location.href = mailtoLink;
-    
-    // Reset form
-    setFormData({ name: '', email: '', message: '' });
-    setSubmitStatus('success');
-    setIsSubmitting(false);
-    
-    // Reset status after 3 seconds
-    setTimeout(() => setSubmitStatus('idle'), 3000);
-  };
-
   const contactInfo = [
     {
       icon: Mail,
@@ -154,97 +117,23 @@ const Contact = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <form onSubmit={handleSubmit} className="bg-white p-8 rounded-xl shadow-lg">
-              <h3 className="text-xl font-semibold text-gray-900 mb-6">Send Me a Message</h3>
+            <div className="bg-white p-8 rounded-xl shadow-lg">
+              <h3 className="text-xl font-semibold text-gray-900 mb-6">Get In Touch</h3>
               
-              <div className="mb-6">
-                <label htmlFor="name" className="block text-gray-700 font-medium mb-2">
-                  Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-200"
-                  placeholder="Your Name"
-                />
+              <p className="text-gray-600 mb-6 leading-relaxed">
+                I'm always interested in hearing about new projects and opportunities. 
+                Feel free to reach out using any of the contact methods above!
+              </p>
+              
+              <div className="bg-primary-50 p-6 rounded-lg">
+                <p className="text-center text-gray-700 font-medium">
+                  📧 Email: <a href="mailto:anshraturi87@gmail.com" className="text-primary-600 hover:underline">anshraturi87@gmail.com</a>
+                </p>
+                <p className="text-center text-gray-700 font-medium mt-2">
+                  📱 Phone: <a href="tel:+919319186558" className="text-primary-600 hover:underline">+91-9319186558</a>
+                </p>
               </div>
-
-              <div className="mb-6">
-                <label htmlFor="email" className="block text-gray-700 font-medium mb-2">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-200"
-                  placeholder="your.email@example.com"
-                />
-              </div>
-
-              <div className="mb-6">
-                <label htmlFor="message" className="block text-gray-700 font-medium mb-2">
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows={5}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors duration-200 resize-none"
-                  placeholder="Your message here..."
-                />
-              </div>
-
-              <motion.button
-                type="submit"
-                disabled={isSubmitting}
-                whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
-                whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
-                className="w-full btn-primary flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                {isSubmitting ? (
-                  <>
-                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                    Sending...
-                  </>
-                ) : (
-                  <>
-                    <Send size={20} />
-                    Send Message
-                  </>
-                )}
-              </motion.button>
-
-              {submitStatus === 'success' && (
-                <motion.div
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="mt-4 p-4 bg-green-50 border border-green-200 rounded-lg text-green-700 text-center"
-                >
-                  Thank you for your message! I'll get back to you soon.
-                </motion.div>
-              )}
-
-              {submitStatus === 'error' && (
-                <motion.div
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="mt-4 p-4 bg-red-50 border border-red-200 rounded-lg text-red-700 text-center"
-                >
-                  Something went wrong. Please try again.
-                </motion.div>
-              )}
-            </form>
+            </div>
           </motion.div>
         </div>
       </div>
